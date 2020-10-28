@@ -33,19 +33,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User create(UserDto userDto) {
-		User user = null;
-		try {
-			User newUser = new User();
-			newUser.setUserEmail(userDto.getEmail());
-			newUser.setUserMobile(userDto.getMobile());
-			newUser.setFullName(userDto.getName());
-			newUser.setUserPassword(bcryptEncoder.encode(userDto.getPassword()));
-			newUser.setRecordStatus(true);
-			user = userDao.save(newUser);
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-		}
-		return user;
+		User newUser = User.builder().userEmail(userDto.getEmail()).userMobile(userDto.getMobile())
+				.fullName(userDto.getName()).userPassword(userDto.getPassword()).recordStatus(true).build();
+		return userDao.save(newUser);
+
+	}
+
+	public User findByEmail(String email) {
+		return userDao.findByUserEmail(email);
 	}
 
 }

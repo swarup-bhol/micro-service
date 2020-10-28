@@ -7,4 +7,6 @@ public interface UserService {
 	boolean checkUser(UserDto user);
 
 	User create(UserDto user);
+
+	User findByEmail(String email);
 }

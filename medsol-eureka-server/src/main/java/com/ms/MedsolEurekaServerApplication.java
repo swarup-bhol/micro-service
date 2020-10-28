@@ -2,14 +2,14 @@ package com.ms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-@EnableDiscoveryClient
-public class MedsolPostServiceApplication {
+@EnableEurekaServer
+public class MedsolEurekaServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MedsolPostServiceApplication.class, args);
+		SpringApplication.run(MedsolEurekaServerApplication.class, args);
 	}
 
 }
